@@ -17,8 +17,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/user", userRoute);
-app.use("/anime", animeRoute);
+app.use("/users", userRoute);
+app.use("/animes", animeRoute);
 app.use("/auth", userProtected);
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
