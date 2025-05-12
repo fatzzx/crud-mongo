@@ -7,6 +7,8 @@ import Anime from "../models/Anime.js";
 import userRoute from "../routes/user.route.js";
 import userProtected from "../routes/protected.route.js";
 import animeRoute from "../routes/anime.route.js";
+import swaggerUi from "swagger-ui-express";
+import { specs } from "../config/swagger.js";
 
 dotenv.config();
 
@@ -17,8 +19,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/users", userRoute);
-app.use("/animes", animeRoute);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+app.use("/user", userRoute);
+app.use("/anime", animeRoute);
 app.use("/auth", userProtected);
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
