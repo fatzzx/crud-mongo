@@ -22,6 +22,10 @@ const options = {
         url: "https://crud-mongo-sepia.vercel.app/",
         description: "Servidor de prod",
       },
+      {
+        url: "http://localhost:3000",
+        description: "Servidor de dev",
+      },
     ],
     components: {
       securitySchemes: {
